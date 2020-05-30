@@ -29,6 +29,7 @@
             justify-content: center;
             align-items: center;
             font-size: 25px;
+            user-select: none;
         }
 
         #copyright {
@@ -39,13 +40,29 @@
             font-family: Arial, Helvetica, sans-serif;
             color: rgb(99, 99, 99);
         }
+
+        #cover {
+            position: absolute;
+            background-color: black;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: "Custom", serif;
+            font-size: 50px;
+            z-index: 2;
+        }
     </style>
+    <div id="cover">Clique</div>
     <h1>Tu as été Banquaroulé</h1>
-    <video id="video" autoplay loop width="720" muted>
+    <video id="video" loop width="720">
         <source src="looped.mp4" type="video/mp4">
     </video>
-    <iframe src="silence.mp3" allow="autoplay" id="audio"></iframe>
-    <audio id="audio" autoplay loop >
+    <audio id="audio" loop >
         <source src="looped.mp3" type="audio/mp3">
     </audio>
     <h1 id="chapeau">Tirage de chapeau: 0</h1>
@@ -55,12 +72,14 @@
         const chapeau = document.getElementById('chapeau');
         const video = document.getElementById('video');
         const audio = document.getElementById('audio');
+        const cover = document.getElementById('cover');
         const tirageDeChapeau = () => {
             nombreDetirageDeChapeau++;
             chapeau.textContent = `Tirage de chapeau: ${nombreDetirageDeChapeau}`;
             document.title = `Tu as été banquaroulé ${nombreDetirageDeChapeau} fois`
         }
-        video.onloadeddata = () => {
+        const roll = () => {
+            cover.style.display = 'none';
             video.play();
             audio.play();
             setTimeout(() => {
@@ -69,7 +88,8 @@
                     setInterval(() => { tirageDeChapeau(); }, 9500);
                 }, 4550);
             });
-        };
+        }
+        document.addEventListener('click', roll);
     </script>
 </body>
 
