@@ -57,12 +57,13 @@
             z-index: 2;
         }
     </style>
+    <!-- Coucou les curieux -->
     <div id="cover">Clique</div>
     <h1>Tu as été Banquaroulé</h1>
     <video id="video" loop width="720">
         <source src="looped.mp4" type="video/mp4">
     </video>
-    <audio id="audio" loop >
+    <audio id="audio" loop>
         <source src="looped.mp3" type="audio/mp3">
     </audio>
     <h1 id="chapeau">Tirage de chapeau: 0</h1>
@@ -84,11 +85,9 @@
             video.play();
             audio.play();
             setTimeout(() => {
-                setTimeout(() => {
-                    tirageDeChapeau()
-                    setInterval(() => { tirageDeChapeau(); }, 9500);
-                }, 4550);
-            });
+                tirageDeChapeau()
+                setInterval(() => { tirageDeChapeau(); }, 9500);
+            }, 4550);
         }
         document.addEventListener('click', roll);
     </script>
