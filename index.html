@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bankar-roll</title>
+    <title>Tu as été banquaroulé</title>
 </head>
 
 <body>
@@ -56,6 +56,7 @@
         const tirageDeChapeau = () => {
             nombreDetirageDeChapeau++;
             chapeau.textContent = `Tirage de chapeau: ${nombreDetirageDeChapeau}`;
+            document.title = `Tu as été banquaroulé ${nombreDetirageDeChapeau} fois`
         }
         video.play();
         setTimeout(() => {
