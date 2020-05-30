@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bankar-roll</title>
+</head>
+
+<body>
+    <style>
+        @font-face {
+            font-family: "Custom";
+            src: url("font.ttf");
+        }
+
+        html, 
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: "Custom", serif;
+            background-color: black;
+            display: flex;
+            color: white;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+        }
+
+        #copyright{
+            position: absolute;
+            bottom:5px;
+            right: 5px;
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(99, 99, 99);
+        }
+    </style>
+    <h1>Tu as été Banquaroulé</h1>
+    <video autoplay loop width="720">
+        <source src="looped.mp4" type="video/mp4">
+    </video>
+    <audio autoplay loop>
+        <source src="looped.mp3" type="audio/mpeg">
+    </audio>
+    <h1 id="chapeau">Tirage de chapeau: 0</h1>
+    <span id='copyright'>Musique de Tsuko G. - https://www.youtube.com/watch?v=UMl7HAXVtmQ</span>
+    <script>
+        let nombreDetirageDeChapeau = 0;
+        const chapeau = document.getElementById('chapeau');
+        const tirageDeChapeau = () => {
+            nombreDetirageDeChapeau++;
+            chapeau.textContent = `Tirage de chapeau: ${nombreDetirageDeChapeau}`;
+        }
+        setTimeout(() => {
+            tirageDeChapeau()
+            setInterval(() => { tirageDeChapeau(); }, 9500)
+        }, 4550);
+    </script>
+</body>
+
+</html>
