@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu as été banquaroulé</title>
+    <title>Clique</title>
 </head>
 
 <body>
@@ -80,6 +80,7 @@
         }
         const roll = () => {
             cover.style.display = 'none';
+            document.title = 'Tu as été banquaroulé';
             video.play();
             audio.play();
             setTimeout(() => {
