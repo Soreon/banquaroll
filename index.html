@@ -41,7 +41,7 @@
         }
     </style>
     <h1>Tu as été Banquaroulé</h1>
-    <video autoplay loop width="720">
+    <video id="video" autoplay loop width="720">
         <source src="looped.mp4" type="video/mp4">
     </video>
     <audio autoplay loop>
@@ -52,10 +52,12 @@
     <script>
         let nombreDetirageDeChapeau = 0;
         const chapeau = document.getElementById('chapeau');
+        const video = document.getElementById('video');
         const tirageDeChapeau = () => {
             nombreDetirageDeChapeau++;
             chapeau.textContent = `Tirage de chapeau: ${nombreDetirageDeChapeau}`;
         }
+        video.play();
         setTimeout(() => {
             tirageDeChapeau()
             setInterval(() => { tirageDeChapeau(); }, 9500)
