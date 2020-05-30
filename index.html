@@ -14,7 +14,7 @@
             src: url("font.ttf");
         }
 
-        html, 
+        html,
         body {
             height: 100%;
             overflow: hidden;
@@ -31,9 +31,9 @@
             font-size: 25px;
         }
 
-        #copyright{
+        #copyright {
             position: absolute;
-            bottom:5px;
+            bottom: 5px;
             right: 5px;
             font-size: 10px;
             font-family: Arial, Helvetica, sans-serif;
@@ -44,7 +44,7 @@
     <video id="video" autoplay loop width="720">
         <source src="looped.mp4" type="video/mp4">
     </video>
-    <audio autoplay loop>
+    <audio id="audio" autoplay loop>
         <source src="looped.mp3" type="audio/mpeg">
     </audio>
     <h1 id="chapeau">Tirage de chapeau: 0</h1>
@@ -53,16 +53,22 @@
         let nombreDetirageDeChapeau = 0;
         const chapeau = document.getElementById('chapeau');
         const video = document.getElementById('video');
+        const audio = document.getElementById('audio');
         const tirageDeChapeau = () => {
             nombreDetirageDeChapeau++;
             chapeau.textContent = `Tirage de chapeau: ${nombreDetirageDeChapeau}`;
             document.title = `Tu as été banquaroulé ${nombreDetirageDeChapeau} fois`
         }
-        video.play();
-        setTimeout(() => {
-            tirageDeChapeau()
-            setInterval(() => { tirageDeChapeau(); }, 9500)
-        }, 4550);
+        video.onloadeddata = () => {
+            video.play();
+            audio.play();
+            setTimeout(() => {
+                setTimeout(() => {
+                    tirageDeChapeau()
+                    setInterval(() => { tirageDeChapeau(); }, 9500);
+                }, 4550);
+            });
+        };
     </script>
 </body>
 
